@@ -1,12 +1,14 @@
 // website/routes.js
 import { Router } from 'express';
 import * as api from './apis.js';
+import * as controller from './controllers.js';
 
 const router = Router();
 
-router.get('/', (req, res) => {
-  return res.render('website/index');
-});
+router.get('/', controller.home);
+router.get('/about', controller.about);
+router.get('/contact', controller.contact);
+router.get('/players', controller.players);
 router.get('/api/v1/nations', api.listNations);
 router.get('/api/v1/nations/:id', api.getNationById);
 router.post('/api/v1/nations', api.createNation);
