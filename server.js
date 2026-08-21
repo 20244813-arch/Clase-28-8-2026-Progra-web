@@ -2,6 +2,8 @@ import express from 'express';
 import 'dotenv/config';
 import bootstrap from './configs/bootstrap.js';
 
+console.log('B ++++++++++++++++++++++++++++++++++++++')
+
 const app = express();
 
 // Inicializa toda la app
