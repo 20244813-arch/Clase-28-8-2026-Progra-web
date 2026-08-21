@@ -108,7 +108,7 @@ export default function bootstrap(app) {
   app.use(viewHelpers);
 
   // Vistas - Configurar rutas absolutas para Vercel
-  const viewsPath = path.join(__dirname, '../website/views');
+  const viewsPath = path.join(__dirname, '../views');
   app.engine('ejs', engine);
   app.set('view engine', 'ejs');
   app.set('views', [viewsPath]);
