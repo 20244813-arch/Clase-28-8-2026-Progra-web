@@ -12,6 +12,7 @@ import fs from 'fs';
 import crypto from 'crypto';
 
 import websiteRoutes from '../website/routes.js';
+import adminRoutes from '../admin/configs/routes.js';
 import { notFoundHandler, viewFlash, viewEnv, viewSession, viewHelpers } from './middlewares.js';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -131,6 +132,7 @@ export default function bootstrap(app) {
 
   // Rutas Web
   app.use('/', websiteRoutes);
+  app.use('/', adminRoutes);
 
   // Para SPA de React - Redirigir todas las rutas no encontradas al index.html
   /*

@@ -21,6 +21,7 @@ export default defineConfig(({ mode }) => {
       rollupOptions: {
         input: {
           'web': resolve(__dirname, 'src/entries/web.jsx'),
+          'admin': resolve(__dirname, 'src/entries/admin.jsx'),
         },
         output: {
           entryFileNames: `js/[name]${minSuffix}.js`,
