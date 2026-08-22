@@ -1,25 +1,28 @@
 {
   "version": 2,
-  "rewrites": [
+  "buildCommand": "npm run build",
+  "outputDirectory": "public/dist",
+  "builds": [
     {
-      "source": "/(.*)",
-      "destination": "/api/index.js"
+      "src": "public/dist/**/*",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "api/index.js",
+      "use": "@vercel/node",
+      "config": {
+        "includeFiles": ["public/dist/**", "views/**", "node_modules/pg/**"]
+      }
     }
   ],
-  "functions": {
-    "api/index.js": {
-      "maxDuration": 10,
-      "includeFiles": "node_modules/pg/**"
-    }
-  },
-  "headers": [
+  "routes": [
     {
-      "source": "/(.*)",
-      "headers": [
-        { "key": "X-Content-Type-Options", "value": "nosniff" },
-        { "key": "X-Frame-Options", "value": "DENY" },
-        { "key": "X-XSS-Protection", "value": "1; mode=block" }
-      ]
+      "src": "/dist/(.*)",
+      "dest": "/public/dist/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/api/index.js"
     }
   ]
 }
