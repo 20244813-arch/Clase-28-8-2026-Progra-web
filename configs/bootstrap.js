@@ -133,7 +133,8 @@ export default function bootstrap(app) {
   app.use('/', websiteRoutes);
 
   // Para SPA de React - Redirigir todas las rutas no encontradas al index.html
-  app.get('*', (req, res, next) => {
+  /*
+  app.get('/*', (req, res, next) => {
     // Verificar si es una ruta de API o archivo estático
     if (req.path.startsWith('/api/') || req.path.includes('.')) {
       return next();
@@ -145,7 +146,7 @@ export default function bootstrap(app) {
     } else {
       next();
     }
-  });
+  });*/
 
   // Middleware 404
   app.use(notFoundHandler);

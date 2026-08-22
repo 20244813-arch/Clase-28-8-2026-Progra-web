@@ -1,6 +1,6 @@
-<!-- webiste/views/index.ejs -->
+<!-- views/layouts/website.ejs -->
 <!doctype html>
-<html lang="en">
+<html lang="es">
 
 <head>
   <meta charset="UTF-8" />
@@ -12,49 +12,39 @@
   <title><%= title %></title>
 </head>
 
-<body class="flex min-h-screen flex-col font-sans">
+<body class="d-flex flex-column min-vh-100 font-sans">
 
   <!-- Navbar -->
   <%- include("partials/_navbar") %>
 
-
-  <!-- Menu mobile -->
+  <!-- Menu mobile (Offcanvas o collapse de Bootstrap) -->
   <%- include("partials/_mobile_menu") %>
 
+  <!-- Cuerpo principal -->
+  <div class="container-fluid flex-grow-1 p-0">
+    <div class="row g-0 h-100">
 
-  <!-- Cuerpo -->
-  <div class="flex flex-1">
-
-    <!-- Sidebar -->
-    <%- include("partials/_sidebar") %>
-
-
-    <!-- Contenido dinámico -->
-    <main class="flex w-full flex-col bg-gray-100 md:w-4/5">
-
-      <div class="flex-1 p-8">
-        <%- body %>
+      <!-- Sidebar -->
+      <div class="col-12 col-md-3 col-lg-2">
+        <%- include("partials/_sidebar") %>
       </div>
 
+      <!-- Contenido dinámico -->
+      <main class="col-12 col-md-9 col-lg-10 d-flex flex-column bg-light">
 
-      <!-- Footer dentro del contenido -->
-      <%- include("partials/_footer") %>
+        <div class="flex-grow-1 p-4">
+          <%- body %>
+        </div>
 
-    </main>
+        <!-- Footer dentro del contenido -->
+        <%- include("partials/_footer") %>
 
+      </main>
+
+    </div>
   </div>
 
-
   <script type="module" src="/dist/js/web.js"></script>
-
-  <script>
-    const button = document.getElementById("menuButton");
-    const menu = document.getElementById("mobileMenu");
-
-    button?.addEventListener("click", () => {
-      menu.classList.toggle("-translate-x-full");
-    });
-  </script>
 
 </body>
 
