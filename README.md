@@ -42,6 +42,38 @@ Crear proyecto GIT
 
     >git init
 
+## Agregar cambios
+
+    > git add "nombre del archivo"
+    > git add .
+
+## Guardar cambios (agregar un commit)
+
+    > git commit -m "Descripción de los cambios"
+
+## Ver historial
+
+    > git log
+    > git log --oneline
+
+## Para las ramas
+    > git branch (ver las ramas)
+    > git checkout -b "nombre de la rama" (crear rama)
+
+## Descargar cambios del repositorio en remoto
+    > git pull
+
+## Ceerar sesion previa 
+    > git remote remove origin
+
+
+## Subir cambios a github
+    > git remote add origin https://github.com/20244813-arch/pm-2026-2.git
+    > git branch -M main
+    > git push
+
+
+
 Instalar dependencias:
 
     npm install
