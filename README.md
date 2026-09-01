@@ -74,6 +74,10 @@ Crear proyecto GIT
 
 
 
+
+
+## Arranque de la aplicación
+
 Instalar dependencias:
 
     npm install
@@ -81,3 +85,7 @@ Instalar dependencias:
 npm install -g vercel
 vercel login
 vercel --prod
+
+    1) Descargar dependencias en npm 
+    2) En la carpeta central del proyecto, colocamos npm install
+    3) despues colocamos el npm run dev
